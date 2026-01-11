@@ -1,15 +1,160 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #0066cc;
+}
+
+header {
+    background: #1e293b;
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+header h1 {
     text-align: center;
-    padding: 40px;
+}
+
+nav {
+    text-align: center;
+    margin-top: 10px;
+}
+
+nav a {
+    margin: 0 10px;
+    color: #cbd5e1;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+.store-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.store-links a {
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    color: white;
+}
+
+.store-links a:first-child {
+    background: #16a34a;
+}
+
+.store-links a:last-child {
+    background: #0f172a;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
 }
 
 table {
-    margin: auto;
+    width: 100%;
+    table-layout: fixed;   /* 🔑 This is the key */
     border-collapse: collapse;
 }
 
-td, th {
-    border: 1px solid #ccc;
-    padding: 8px 12px;
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;    /* Center text under headers */
+    word-wrap: break-word;
+}
+
+/* Equal column widths */
+th:nth-child(1),
+td:nth-child(1) {
+    width: 33.33%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 33.33%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+    width: 33.33%;
+}
+
+.badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+pre {
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 22px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
 }

@@ -1,11 +1,26 @@
 function addScore() {
-    const name = document.getElementById("name").value;
+    const input = document.getElementById("name");
+    const name = input.value.trim();
+    const result = document.getElementById("result");
 
-    api.post("/add_score.php", { player_name: name })
-       .then(res => {
-           document.getElementById("result").textContent =
-             `Score: ${res.data.score}
+    if (name === "") {
+        alert("Please enter your name");
+        return;
+    }
+
+    api.post("/add_scores.php", { player_name: name })
+        .then(res => {
+            result.textContent =
+                `Score: ${res.data.score}
 Duration: ${res.data.duration_seconds}s`;
-       })
-       .catch(err => alert("Error adding score"));
+
+            input.value = "";
+        })
+        .catch(err => {
+            if (err.response && err.response.data && err.response.data.error) {
+                alert(err.response.data.error);
+            } else {
+                alert("Something went wrong. Please try again.");
+            }
+        });
 }
